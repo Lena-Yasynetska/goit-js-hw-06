@@ -6,3 +6,14 @@ const ingredients = [
   'Herbs',
   'Condiments',
 ];
+const container = document.querySelector('#ingredients');
+const markup = ingredients.map((item) => {
+  const li = document.createElement('li');
+  li.textContent = item;
+  console.log(li)
+  returnli;
+}).join('');
+// console.log(markup);
+
+container.append( ...markup)
+console.dir(container)
