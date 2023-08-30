@@ -1,29 +1,18 @@
-const form = document.querySelector(".login-form");
+const registerForm = document.querySelector(".form");
 
-form.addEventListener('submit', onFormSubmit);
-function onFormSubmit(event) {
-event.preventDefault();
-    const form = event.currentTarget;
-    const formData = new FormData(event.currentTarget);
-    const dataObject = {};
+registerForm.addEventListener("submit", handleSubmit);
 
-    formData.forEach((value, name) => {
-        dataObject[name] = value;
-    })
-}
-if (validateForm(dataObject)) {
-    console.log(dataObject);
-    form.request();
-}else{
-    alert("All fields must be fillded");
-}
+function handleSubmit(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const login = form.elements.login.value;
+  const password = form.elements.password.value;
+  
+  if (login === "" || password === "") {
+    
+    alert("Please fill in all the fields!");
+  };
 
-function validateForm(data) {
-    for (const key in data) {
-        if (data[key] === '') {
-            return false;
-            
-        }
-    }
-    return true;
-}
+  console.log(`Login: ${login.value}, Password: ${password.value}`);
+  form.reset();
+};

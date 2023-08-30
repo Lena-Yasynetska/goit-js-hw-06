@@ -10,10 +10,12 @@ const container = document.querySelector('#ingredients');
 const markup = ingredients.map((item) => {
   const li = document.createElement('li');
   li.textContent = item;
+  li.classList = 'item';
   console.log(li)
-  returnli;
-}).join('');
-// console.log(markup);
+  return li;
+})
 
-container.append( ...markup)
+console.log(...markup);
+
+container.append(...markup)
 console.dir(container)
